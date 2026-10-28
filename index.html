@@ -14,6 +14,7 @@
   @media (prefers-color-scheme: dark) { body { color: #e8e8ea; background: #0f1014; } }
   h1 { font-size: 1.75rem; margin-bottom: .25rem; }
   h2 { font-size: 1.15rem; margin-top: 2.25rem; }
+  h3 { font-size: 1rem; margin-top: 1.5rem; }
   .updated { color: #6b7280; font-size: .9rem; margin-top: 0; }
   .callout {
     border-left: 3px solid #2F8EF4; padding: .75rem 1rem; margin: 1.5rem 0;
@@ -28,82 +29,184 @@
 <body>
 
 <h1>Vaxmo — Privacy Policy</h1>
-<p class="updated">Last updated: 20 September 2026</p>
+<p class="updated">Last updated: 28 October 2026</p>
 
 <div class="callout">
-  <strong>In short:</strong> Vaxmo does not collect, transmit, or share any personal
-  data. Everything you enter stays on your device. There are no accounts, no servers,
-  no analytics, and no advertising.
+  <strong>In short:</strong> your missions, settings and photos are stored on your
+  phone. Two things leave it: what you give <em>AI capture</em> (a typed plan, the
+  words of a voice plan, or a photo of a written plan), which is sent to our server
+  and to Google's Gemini AI to be turned into missions; and crash reports, which
+  contain no missions, words or photos. Vaxmo also keeps a record of how you use
+  the app, but only on your phone. There are no accounts and no advertising, and
+  nothing about how you use the app is sent anywhere.
 </div>
 
-<h2>What we collect</h2>
+<h2>What stays on your phone</h2>
 <p>
-  Nothing. Vaxmo has no user accounts and no backend service. We cannot see your
-  tasks, and we do not receive any information about you or how you use the app.
-</p>
-
-<h2>What the app stores, and where</h2>
-<p>
-  Vaxmo saves the following in your device's private app storage. It never leaves
-  your device:
+  Vaxmo saves the following in your phone's private app storage. None of it is sent
+  anywhere:
 </p>
 <ul>
-  <li>Your tasks — titles, notes, priorities, due dates, and completion status</li>
+  <li>Your missions — titles, notes, priorities, dates and times, and whether they're done</li>
+  <li>Your routines (missions that repeat) and their history</li>
+  <li>Photos you attach to a mission — resized copies in the app's private storage.
+      The originals in your camera or gallery are never changed.</li>
+  <li>Today's capture log — what you captured today and the photos you captured,
+      so you can review them. It clears itself the next day.</li>
   <li>Your settings — reminder times and display preferences</li>
   <li>Your answers to the short setup questions shown when you first open the app</li>
-  <li>Scheduled reminder identifiers, so reminders can be updated or cancelled</li>
+  <li>Scheduled reminder and alarm identifiers, so they can be updated or cancelled</li>
+  <li>A record of how you use Vaxmo — for example when a mission was created (and
+      whether by typing, voice, photo or by hand), completed, moved or deleted; when
+      you used AI capture; which screen was open and for how long; whether you opened
+      a reminder. It contains no mission titles, notes, words or photos, only the app's
+      internal reference numbers. Vaxmo keeps the full record for 90 days, and after
+      that only daily totals. It is never sent anywhere: not to our server, not to
+      Google and not in crash reports.</li>
 </ul>
 <p>
-  This data is sandboxed by Android: other apps cannot read it. Uninstalling Vaxmo
-  permanently deletes all of it.
+  Android keeps this storage private to Vaxmo: other apps can't read it.
+  Uninstalling Vaxmo permanently deletes all of it.
 </p>
 
-<h2>Network access</h2>
+<h2>AI capture: what leaves your phone</h2>
 <p>
-  The app makes no network requests. It contains no analytics, crash reporting,
-  advertising, or tracking components of any kind, and no third-party service
-  receives your data because no data is ever transmitted.
+  AI capture is optional. Nothing is sent unless you use it, and you can always add
+  missions yourself instead. Each time you send a capture, Vaxmo sends:
+</p>
+<ul>
+  <li><strong>What you captured:</strong> the plan you typed; or the words of a voice
+      plan (as text — never the recording); or the photo you took or picked, resized
+      and re-saved as a new JPEG, which leaves out the original photo's hidden details
+      such as its location; or, when Vaxmo asks you a follow-up question, that question,
+      the part of your plan it was about, and your answer.</li>
+  <li><strong>Your phone's local date, time and time zone</strong>, and your morning
+      and evening reminder times, so "tomorrow" and "tonight" land on the right day
+      and time.</li>
+  <li><strong>A random install number</strong> created by the app, used only to count
+      your AI captures for the day (there is a daily limit). It isn't linked to your
+      name, account, phone number or any device identifier.</li>
+</ul>
+<p>It is sent, encrypted (HTTPS), to two places:</p>
+
+<h3>1. Our server (Vaxmo API, run on Cloudflare)</h3>
+<ul>
+  <li>It passes your capture to Gemini and sends the suggested missions back to your
+      phone. It does <strong>not</strong> store your capture or the result.</li>
+  <li>It counts how many captures you made today, to apply the daily limit. The
+      count is stored under a code made from your install number that changes every
+      day and can't be turned back into it. Counts are deleted at the daily reset
+      (midnight in California, US).</li>
+  <li>Its logs record counts, timings and error types — for example "a photo capture,
+      3 missions, 1.4 seconds". They never contain your words, photos or results, or
+      your install number. Logs are deleted after 3 days.</li>
+  <li>Like any website, Cloudflare, which runs the server, needs your IP address to
+      deliver each request. Our server doesn't record your IP address or location:
+      we have turned off the request logs that would keep them.</li>
+</ul>
+
+<h3>2. Google (the Gemini API)</h3>
+<ul>
+  <li>Google's Gemini AI reads your capture and suggests missions. Google receives the
+      capture and the context listed above. It does not receive your install number,
+      your IP address or anything that identifies you.</li>
+  <li>Google keeps what it receives for up to 55 days to detect abuse, as its
+      <a href="https://ai.google.dev/gemini-api/docs/usage-policies">Gemini API usage policy</a> describes.</li>
+  <li>Vaxmo currently uses Gemini's free service. Under the
+      <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>, Google may
+      use what is sent to the free service to improve its products and AI models, and
+      people at Google may review it, after Google separates it from our account.
+      Please don't put sensitive or confidential information (such as health details,
+      passwords or ID numbers) in a capture.</li>
+</ul>
+<p>
+  Vaxmo never sells or shares your captures with anyone else, and nothing from a
+  capture is used for advertising.
 </p>
 
-<h2>Notifications</h2>
+<h2>Voice capture</h2>
 <p>
-  Reminders are scheduled locally by Android on your device. Vaxmo does not use push
-  notifications, so no notification content is sent through any external service.
+  When you hold or tap the mic, Android's speech recognition service on your phone
+  turns your speech into text. That service is part of Android (on most phones it is
+  provided by Google), and it handles your voice under its own privacy terms. Vaxmo
+  receives only the resulting text, never a recording, and stores no audio.
+</p>
+
+<h2>Crash reports</h2>
+<p>
+  If Vaxmo crashes, it sends a crash report to Sentry, a crash-reporting service
+  (Functional Software, Inc.), so we can find and fix the bug. A report contains:
+</p>
+<ul>
+  <li>the error and where in Vaxmo's code it happened</li>
+  <li>your phone's model and Android version, and the Vaxmo version</li>
+</ul>
+<p>
+  It never contains your missions, routines, captures, voice words or photos, your
+  install number, or any account or contact details. Vaxmo does not send usage
+  analytics, session tracking or performance data. Like any service on the internet,
+  Sentry receives your IP address when a report arrives. We have set it not to store
+  that address. Crash reports are deleted after 90 days at most.
+</p>
+
+<h2>Notifications and alarms</h2>
+<p>
+  Reminders and alarms are scheduled by Android on your phone. Vaxmo does not use push
+  notifications, so no reminder content goes through any outside service.
 </p>
 
 <h2>Permissions, and why they are needed</h2>
 <ul>
   <li><code>POST_NOTIFICATIONS</code> — to show your reminders.</li>
-  <li><code>SCHEDULE_EXACT_ALARM</code> — to deliver reminders at the time you set.
-      If you decline this, reminders still work but Android may deliver them a few
+  <li><code>SCHEDULE_EXACT_ALARM</code> — to ring reminders and alarms at the time you
+      set. If you decline, reminders still work but Android may deliver them a few
       minutes late.</li>
-  <li><code>RECEIVE_BOOT_COMPLETED</code> — to restore your scheduled reminders after
-      your device restarts, so they are not silently lost.</li>
+  <li><code>USE_FULL_SCREEN_INTENT</code> — so an alarm can open over the lock screen.</li>
+  <li><code>RECEIVE_BOOT_COMPLETED</code> — to restore your reminders and alarms after
+      your phone restarts.</li>
+  <li><code>RECORD_AUDIO</code> (microphone) — only while you hold or tap the mic for
+      voice capture.</li>
+  <li><code>CAMERA</code> — only when you take a photo, to attach it to a mission or to
+      capture a written plan.</li>
+  <li><code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> — to send AI captures
+      and crash reports, and to know when you're offline so a capture can wait until
+      you're back online.</li>
 </ul>
+<p>
+  Choosing a photo from your gallery uses Android's system photo picker, which shares
+  only the single photo you pick. Vaxmo does not request access to your photo library.
+</p>
 
 <h2>The home screen widget</h2>
 <p>
-  The optional widget reads your tasks from the same private on-device storage in
-  order to display them. It transmits nothing.
+  The optional widget reads your missions from the same private storage on your phone
+  in order to show them. It sends nothing.
 </p>
 
-<h2>Children</h2>
+<h2>Age</h2>
 <p>
-  Vaxmo is a general-purpose task manager and is not directed at children. Because it
-  collects no data at all, it collects no data from children.
+  Vaxmo is meant for adults (18 and over), and it isn't directed at children. The
+  Gemini API that powers AI capture may only be used by people aged 18 or over.
 </p>
 
 <h2>Deleting your data</h2>
-<p>
-  Use <em>Clear All</em> inside the app, or uninstall Vaxmo. Either removes everything
-  permanently. Because nothing is stored off your device, there is no server-side copy
-  to request or erase.
-</p>
+<ul>
+  <li><strong>On your phone:</strong> use <em>Clear All</em> inside the app, or uninstall
+      Vaxmo. Either removes everything permanently, including photos, the capture log
+      and the record of how you use the app. Deleting a mission or a photo also
+      deletes its photo file.</li>
+  <li><strong>On our server:</strong> nothing from your captures is stored there. The
+      daily capture count is deleted at the daily reset, and logs after 3 days.</li>
+  <li><strong>At Google:</strong> captures are kept for up to 55 days, as described above.
+      They are separated from our account, and we have no way to find or delete yours.</li>
+  <li><strong>Crash reports:</strong> deleted after 90 days at most. If you want reports from
+      your phone deleted sooner, contact us with the date and time of the crash.</li>
+</ul>
 
 <h2>Changes to this policy</h2>
 <p>
   If this policy changes, the updated version will be published at this address with a
-  revised date above.
+  new date above.
 </p>
 
 <h2>Contact</h2>
