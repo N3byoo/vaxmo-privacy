@@ -29,26 +29,31 @@
 <body>
 
 <h1>Vaxmo — Privacy Policy</h1>
-<p class="updated">Last updated: 28 October 2026</p>
+<p class="updated">Last updated: 1 November 2026</p>
 
 <div class="callout">
   <strong>In short:</strong> your missions, settings and photos are stored on your
-  phone. Two things leave it: what you give <em>AI capture</em> (a typed plan, the
+  phone. Three things leave it: what you give <em>AI capture</em> (a typed plan, the
   words of a voice plan, or a photo of a written plan), which is sent to our server
-  and to Google's Gemini AI to be turned into missions; and crash reports, which
-  contain no missions, words or photos. Vaxmo also keeps a record of how you use
-  the app, but only on your phone. There are no accounts and no advertising, and
-  nothing about how you use the app is sent anywhere.
+  and to Google's Gemini AI to be turned into missions; once a day, when you close
+  your day, the titles of tomorrow's missions, your tools and a few measured facts,
+  so Gemini can word your <em>morning push</em> (you can turn this off in Settings);
+  and crash reports, which contain no missions, words or photos. Vaxmo also keeps a
+  record of how you use the app. That record itself stays on your phone. There are
+  no accounts and no advertising.
 </div>
 
 <h2>What stays on your phone</h2>
 <p>
-  Vaxmo saves the following in your phone's private app storage. None of it is sent
-  anywhere:
+  Vaxmo saves the following in your phone's private app storage. Unless a section
+  below says otherwise, none of it is sent anywhere:
 </p>
 <ul>
   <li>Your missions — titles, notes, priorities, dates and times, and whether they're done</li>
   <li>Your routines (missions that repeat) and their history</li>
+  <li>Your tools (counters, streaks and countdowns), the words each one came from,
+      and what they have counted</li>
+  <li>Tomorrow's morning push and tool order, once they are decided</li>
   <li>Photos you attach to a mission — resized copies in the app's private storage.
       The originals in your camera or gallery are never changed.</li>
   <li>Today's capture log — what you captured today and the photos you captured,
@@ -63,6 +68,10 @@
       internal reference numbers. Vaxmo keeps the full record for 90 days, and after
       that only daily totals. It is never sent anywhere: not to our server, not to
       Google and not in crash reports.</li>
+  <li>Facts worked out from that record, such as which days you finish the most.
+      You can read and reset them under Profile, in What Vaxmo knows about you. They
+      are worked out on your phone. The only time any leave it is for the morning push,
+      described below.</li>
 </ul>
 <p>
   Android keeps this storage private to Vaxmo: other apps can't read it.
@@ -124,6 +133,37 @@
   capture is used for advertising.
 </p>
 
+<h2>The morning push: what leaves your phone</h2>
+<p>
+  When you finish your evening review, Vaxmo makes one request to word tomorrow's
+  morning push and to choose which of your tools come first. That is at most once a
+  day. You can turn it off in Settings under <em>AI morning push</em>; Vaxmo then
+  words the morning on your phone, and none of this is sent. If tomorrow has no
+  missions, nothing is sent either. Each request contains:
+</p>
+<ul>
+  <li><strong>Facts Vaxmo has measured</strong>, once there is enough data behind them,
+      in plain sentences such as "You finish the most on Tuesdays (84%)", and how many
+      days or missions each is based on. A fact you have reset isn't sent.</li>
+  <li><strong>Tomorrow's missions:</strong> each title, whether it is critical, and its
+      time. Never its notes or photos.</li>
+  <li><strong>Your tools:</strong> each name, kind and numbers (for example a count,
+      a goal, a streak or days left).</li>
+  <li><strong>The date, your local time and time zone, and the random install
+      number</strong> described above. The install number is used only to allow one
+      request a day, and it doesn't reach Google.</li>
+</ul>
+<p>
+  It is <strong>never</strong> your notes, your captures, your photos, your setup
+  answers, or the record of how you use Vaxmo. Our server and Google treat this request
+  exactly as they treat a capture, as described in sections 1 and 2 above: our server
+  doesn't store it, and on the free service Google may keep it for up to 55 days, use
+  it to improve its products, and have people review it. Code on our server and on your
+  phone checks the answer, and a push containing a number that wasn't in the request is
+  never shown. The push itself is scheduled on your phone, so it arrives without any
+  further connection.
+</p>
+
 <h2>Voice capture</h2>
 <p>
   When you hold or tap the mic, Android's speech recognition service on your phone
@@ -168,8 +208,8 @@
       voice capture.</li>
   <li><code>CAMERA</code> — only when you take a photo, to attach it to a mission or to
       capture a written plan.</li>
-  <li><code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> — to send AI captures
-      and crash reports, and to know when you're offline so a capture can wait until
+  <li><code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> — to send AI captures,
+      the morning push request and crash reports, and to know when you're offline so a capture can wait until
       you're back online.</li>
 </ul>
 <p>
@@ -186,18 +226,19 @@
 <h2>Age</h2>
 <p>
   Vaxmo is meant for adults (18 and over), and it isn't directed at children. The
-  Gemini API that powers AI capture may only be used by people aged 18 or over.
+  Gemini API that powers AI capture and the morning push may only be used by people
+  aged 18 or over.
 </p>
 
 <h2>Deleting your data</h2>
 <ul>
   <li><strong>On your phone:</strong> use <em>Clear All</em> inside the app, or uninstall
-      Vaxmo. Either removes everything permanently, including photos, the capture log
-      and the record of how you use the app. Deleting a mission or a photo also
+      Vaxmo. Either removes everything permanently, including photos, tools, the capture
+      log and the record of how you use the app. Deleting a mission or a photo also
       deletes its photo file.</li>
-  <li><strong>On our server:</strong> nothing from your captures is stored there. The
+  <li><strong>On our server:</strong> nothing from your captures or morning push is stored there. The
       daily capture count is deleted at the daily reset, and logs after 3 days.</li>
-  <li><strong>At Google:</strong> captures are kept for up to 55 days, as described above.
+  <li><strong>At Google:</strong> captures and morning push requests are kept for up to 55 days, as described above.
       They are separated from our account, and we have no way to find or delete yours.</li>
   <li><strong>Crash reports:</strong> deleted after 90 days at most. If you want reports from
       your phone deleted sooner, contact us with the date and time of the crash.</li>
